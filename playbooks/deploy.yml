@@ -1,0 +1,15 @@
+---
+- hosts: backend
+  become: yes
+  roles: 
+    - nodejs
+
+- hosts: db_server
+  become: yes
+  roles: 
+    - mysql
+
+- hosts: frontend
+  become: yes
+  roles: 
+    - ngnix

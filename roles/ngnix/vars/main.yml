@@ -1,0 +1,3 @@
+---
+# vars file for roles/ngnix
+nginx_port: 80

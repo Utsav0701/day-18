@@ -1,0 +1,4 @@
+---
+# vars file for roles/mysql
+mysql_user: utsav
+mysql_password: utsav1234

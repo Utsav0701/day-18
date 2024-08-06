@@ -1,0 +1,23 @@
+---
+- name: Install MySQL
+  apt:
+    update_cache: yes
+    name: ['mysql-server','mysql-client','python3-mysqldb','libmysqlclient-dev']
+    state: present
+  become: yes
+
+- name: Start and enable MySQL service
+  service:
+    name: mysql
+    state: started
+    enabled: true
+  become: yes
+  
+- name: create a user in the database
+  mysql_user:
+    name: "{{ mysql_user }}"
+    password: "{{ mysql_password }}"
+    priv: '*.*:ALL'
+    host: '%'
+    state: present
+  become: yes
